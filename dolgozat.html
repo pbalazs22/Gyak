@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="bekeres">
+    <button onclick="szo()">Mutat</button>
+    <div id="jel"></div>
+    <ul id="rendez"></ul>
+    <button onclick="rendezes1()">Katt</button>
+    <button onclick="rendezes2()">Katt</button>
+    <script>
+        let elfogad = "öüóqwertzuiopőúasdfghjkléáűíyxcvbnm"
+        const szavak = []
+        function szo()
+        {
+            beol = document.getElementById("bekeres").value
+            let betuk = beol.split("")
+            let szabalyos = betuk.every(function(betu){
+                return elfogad.includes(betu)
+
+            })
+            if (szabalyos)
+            {
+                szavak.push(beol)
+                document.getElementById("jel").innerHTML = szavak;
+            }
+
+            else {document.getElementById("jel").innerHTML = "Nem megfelelő a megadott szó"};
+
+        }
+
+        
+
+        function rendezes1()
+        {
+            szavak.sort()
+            let rend =document.getElementById("rendez")
+            for(i=0; i<szavak.length;i++)
+        {
+            let elem = document.createElement("li")
+            elem.innerHTML= szavak[i]
+            rend.appendChild(elem)
+
+        }
+        }
+
+        function rendezes2()
+        {
+            szavak.sort().reverse()
+            let rend =document.getElementById("rendez")
+            for(i=0; i<szavak.length;i++)
+        {
+            let elem = document.createElement("li")
+            elem.innerHTML= szavak[i]
+            rend.appendChild(elem)
+        }
+        }
+        
+
+    </script>
+    
+</body>
+</html>
